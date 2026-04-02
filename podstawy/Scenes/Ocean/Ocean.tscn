@@ -25,3 +25,4 @@ texture = ExtResource("2_i4j2t")
 
 [node name="chrup" type="AudioStreamPlayer" parent="." unique_id=268567853]
 stream = ExtResource("5_fyc3p")
+volume_db = -8.0
