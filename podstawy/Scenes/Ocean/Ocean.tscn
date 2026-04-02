@@ -19,5 +19,5 @@ rotation = 1.5707964
 texture = ExtResource("3_2ucyk")
 
 [node name="Plane" type="Sprite2D" parent="." unique_id=1378103251]
-position = Vector2(-431, 551)
+position = Vector2(321, 522)
 texture = ExtResource("2_i4j2t")
