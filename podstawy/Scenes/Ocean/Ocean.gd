@@ -12,8 +12,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	# przemieszczaj latające maszyny
-	const speed:int = 100
-	const rotate_speed:float = 3.14
+	const speed:int = 200
+	const PI:float = 3.141592653589793238462643383
+	const rotate_speed:float = PI
 	samolot.move_local_x(speed * delta)
 	heli.move_local_x(speed * delta * 0.5)
 	
@@ -22,3 +23,6 @@ func _process(delta: float) -> void:
 		samolot.rotate(-rotate_speed * delta)
 	if Input.is_action_pressed("ui_right"):
 		samolot.rotate(rotate_speed * delta)
+	
+	# ćwiczenie: helikopter lata w kółko
+	heli.rotate(rotate_speed / 8 * delta)
