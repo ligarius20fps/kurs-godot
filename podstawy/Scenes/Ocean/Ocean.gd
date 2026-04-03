@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var samolot: Sprite2D = $Plane
+@onready var samolot: Sprite2D = $Carrier/Plane
 @onready var heli: Sprite2D = $Helicopter
 @onready var chrup: AudioStreamPlayer = $chrup
 const speed:int = 200
@@ -14,7 +14,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	# przemieszczaj latające maszyny
-	#heli.move_local_x(speed * delta * 0.5)
+	heli.move_local_x(speed * delta * 0.5)
 	if Input.is_action_pressed("ui_up"):
 		samolot.move_local_x(speed * delta)
 	
@@ -26,8 +26,9 @@ func _process(delta: float) -> void:
 		samolot.rotate(rotate_speed * delta)
 	
 	# chrupaj gdy naciskam spację
-	if Input.is_action_just_pressed("ui_select" ):
+	if Input.is_action_just_pressed("ui_select"):
 		chrup.play()
+		samolot.global_position = Vector2(heli.position.x, heli.position.y)
 	
 	# ćwiczenie: helikopter lata w kółko
 	heli.rotate(rotate_speed / 8 * delta)
