@@ -25,7 +25,7 @@ texture = ExtResource("3_2ucyk")
 
 [node name="Plane" type="Sprite2D" parent="." unique_id=1378103251]
 unique_name_in_owner = true
-position = Vector2(157, 285)
+position = Vector2(200, 199)
 texture = ExtResource("2_i4j2t")
 
 [node name="chrup" type="AudioStreamPlayer" parent="." unique_id=268567853]

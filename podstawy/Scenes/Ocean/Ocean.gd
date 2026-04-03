@@ -10,16 +10,19 @@ const rotate_speed:float = PI
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	var my_transform = samolot.transform
+	print("| X | Y | Origin")
+	print("| %3.3f | %3.3f | %3.3f" % [my_transform.x.x, my_transform.y.x, my_transform.origin.x])
+	print("| %3.3f | %3.3f | %3.3f" % [my_transform.x.y, my_transform.y.y, my_transform.origin.y])
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	# przemieszczaj latające maszyny
 	heli.move_local_x(speed * delta * 0.5)
-	samolot.move_local_x(speed * delta)
-	#samolot.global_translate(Vector2.RIGHT.normalized() * wind_speed * delta)
+	#samolot.move_local_x(speed * delta)
 	# samolot śledzi kursor
 	samolot.look_at(get_global_mouse_position())
+	samolot.position += samolot.transform.x * speed * delta
 	
 	if Input.is_action_pressed("ui_up"):
 		samolot.move_local_x(speed * delta)
