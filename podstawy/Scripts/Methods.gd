@@ -1,10 +1,10 @@
 @tool
 extends EditorScript
 
-func rollDice():
+func rollDice() -> int:
 	return range(1,7).pick_random()
-	
-func rollDice2():
+
+func rollDice2() -> int:
 	#return randi() % 6 + 1
 	#korzystając z reszty z dzielenia liczby losowej od 0 do (2^32)-1
 	#rzut kostką nie będzie równomierny:
@@ -25,4 +25,5 @@ func rollDice2():
 
 # Called when the script is executed (using File -> Run in Script Editor).
 func _run() -> void:
-	print(rollDice2())
+	for i in range(4):
+		print(rollDice2())
