@@ -7,13 +7,16 @@ const speed:int = 200
 const wind_speed:int = 60
 const PI:float = 3.141592653589793238462643383
 const rotate_speed:float = PI
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func show_transform():
 	var my_transform = samolot.transform
 	print("| X | Y | Origin")
 	print("| %3.3f | %3.3f | %3.3f" % [my_transform.x.x, my_transform.y.x, my_transform.origin.x])
 	print("| %3.3f | %3.3f | %3.3f" % [my_transform.x.y, my_transform.y.y, my_transform.origin.y])
+	
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -21,8 +24,8 @@ func _process(delta: float) -> void:
 	heli.move_local_x(speed * delta * 0.5)
 	#samolot.move_local_x(speed * delta)
 	# samolot śledzi kursor
-	samolot.look_at(get_global_mouse_position())
-	samolot.position += samolot.transform.x * speed * delta
+	#samolot.look_at(get_global_mouse_position())
+	#samolot.position += samolot.transform.x * speed * delta
 	
 	if Input.is_action_pressed("ui_up"):
 		samolot.move_local_x(speed * delta)
@@ -32,10 +35,28 @@ func _process(delta: float) -> void:
 		samolot.rotate(-rotate_speed * delta)
 	if Input.is_action_pressed("ui_right"):
 		samolot.rotate(rotate_speed * delta)
+	# więcej zabawy z transformacją
+	if Input.is_key_pressed(KEY_A):
+		samolot.transform.x.x += 2 * delta
+		if samolot.transform.x.x > 2:
+			samolot.transform.x.x = -2
+	if Input.is_key_pressed(KEY_Z):
+		samolot.transform.x.y += 2 * delta
+		if samolot.transform.x.y > 2:
+			samolot.transform.x.y = -2
+	if Input.is_key_pressed(KEY_S):
+		samolot.transform.y.x += 2 * delta
+		if samolot.transform.y.x > 2:
+			samolot.transform.y.x = -2
+	if Input.is_key_pressed(KEY_X):
+		samolot.transform.y.y += 2 * delta
+		if samolot.transform.y.y > 2:
+			samolot.transform.y.y = -2
 	
 	if Input.is_action_just_pressed("ui_select"):
 		# chrupaj gdy naciskam spację
 		chrup.play()
+		show_transform()
 	
 	# ćwiczenie: helikopter lata w kółko
 	heli.rotate(-rotate_speed / 7 * delta)
