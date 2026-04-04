@@ -26,8 +26,17 @@ func rollDice2() -> int:
 func dodaj2(my_num: int) -> void:
 	my_num+=2
 	print("w funkcji: %d" % [my_num])
+# -----ZADANIE-----
+# Write a function called takes_damage(current_health: int, damage: int) -> int
+# It should subtract damage from current_health
+# If health goes below 0, set it to 0
+# Return the new health
+func takes_damage(current_health: int, damage: int) -> int:
+	return clamp(current_health - damage, 0, current_health)
+	
+func showHP(health: int) -> void:
+	print("HP: %d" % health)
 
-# Called when the script is executed (using File -> Run in Script Editor).
 func _run() -> void:
 	var result
 	for i in range(4):
@@ -35,3 +44,18 @@ func _run() -> void:
 		print(result)
 	dodaj2((result)) # przekazuję wartość
 	print("w mainie: %d" % [result])
+	print("-----ZADANIE-----")
+	var health = 100
+	showHP(health)
+	# In _run(), call it like this:
+	health = takes_damage(health, 30)
+	# print the new health
+	print("OW!")
+	showHP(health)
+	
+	# If health is 0, print "Game Over!"
+	if health <= 0:
+		print("Game Over!")
+	# Otherwise print "Still alive!"
+	else:
+		print("Still alive!")
