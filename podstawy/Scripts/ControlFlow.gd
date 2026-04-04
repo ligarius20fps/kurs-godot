@@ -11,6 +11,15 @@ func _run() -> void:
 	var my_tab: Array =  range(1, 6, 2)
 	print(my_tab)
 	
-	var my_dict: Dictionary = {1: 2, 3: 4}
-	tab.assign(my_tab)
-	print(tab)
+	var my_dict: Dictionary = {
+		true: "siema",
+		false: "nie",
+		null: {
+			1: 2,
+			3: 4,
+		}
+	}
+	print(null in my_dict)
+	print(my_dict[null][1])
+	
+	
