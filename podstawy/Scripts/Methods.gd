@@ -23,7 +23,15 @@ func rollDice2() -> int:
 	# teraz mamy gwarancję, że prawdopodobieństwo jest takie same
 	return my_rand % 6 + 1
 
+func dodaj2(my_num: int) -> void:
+	my_num+=2
+	print("w funkcji: %d" % [my_num])
+
 # Called when the script is executed (using File -> Run in Script Editor).
 func _run() -> void:
+	var result
 	for i in range(4):
-		print(rollDice2())
+		result = rollDice2()
+		print(result)
+	dodaj2((result)) # przekazuję wartość
+	print("w mainie: %d" % [result])
