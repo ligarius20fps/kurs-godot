@@ -15,3 +15,22 @@ func _run() -> void:
 	print("Inventory:")
 	for item in inventory:
 		print(item)
+	
+	var heroes: Dictionary[String, Dictionary] = {
+		"Frodo": {"race": "Hobbit", "weapon": "Sting"},
+		"Aragorn": {"race": "Human", "weapon": "Andúril"},
+		"Legolas": {"race": "Elf", "weapon": "Bow"}
+	}
+	# Add Gimli
+	heroes.Gimli = {
+		"race": "Formula 1",
+		"weapon": "Banana peel"
+	}
+	# Change Legolas weapon
+	heroes.Legolas.weapon = "Stick"
+	# Print Aragorn weapon
+	print(heroes.Aragorn.weapon)
+	# use a for loop to print all races and weapons
+	var my_values = heroes.values()
+	for v in my_values:
+		print("%s, %s" % [v.race, v.weapon])
