@@ -38,13 +38,17 @@ func get_health() -> int:
 func set_health(health: int) -> void:
 	health = clamp(health, 0, 100)
 
-func _to_string() -> String:
-	return ("%s
-Weapon: %s
-HP: %s" % [name, weapon, health])
+#func _to_string() -> String:
+	#return ("%s
+#Weapon: %s
+#HP: %s" % [name, weapon, health])
 
 func _init(name:String, health: int, weapon: String):
 	self.name = name
 	self.health = health
 	self.weapon = weapon
 	character_count += 1
+
+func _notification(what):
+	if what == NOTIFICATION_PREDELETE:
+		print("Goodbye!")
