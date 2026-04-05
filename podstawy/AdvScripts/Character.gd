@@ -1,5 +1,9 @@
 class_name Character
 
+static var character_count: int = 0:
+	get:
+		return character_count
+
 var name: String = "Jeff":
 	get:
 		return name
@@ -38,3 +42,4 @@ func _init(name:String, health: int, weapon: String):
 	self.name = name
 	self.health = health
 	self.weapon = weapon
+	character_count += 1
