@@ -1,26 +1,26 @@
 class_name Character
 
-var name: String = "Jeff"
-var weapon: String = "Stick"
-var age: int = 25
-var health: int = 100
+var _name: String = "Jeff"
+var _weapon: String = "Stick"
+var _age: int = 25
+var _health: int = 100
 
 func print_health():
-	print("%s's HP: %d" % [self.name, self.health])
+	print("%s's HP: %d" % [_name, _health])
 
 func say_info():
-	print("%s(%d)" % [self.name, self.age])
-	print("Weapon: %s" % self.weapon)
-	print("HP: %s" % self.health)
+	print("%s(%d)" % [_name, _age])
+	print("Weapon: %s" % _weapon)
+	print("HP: %s" % _health)
 
 func get_health() -> int:
-	return self.health
+	return _health
 
 func set_health(health: int) -> void:
-	self.health = clamp(health, 0, 100)
+	_health = clamp(health, 0, 100)
 
 func _init(name:String = "Jeff", health: int = 100, age: int = 25, weapon: String = ""):
-	self.name = name
-	self.age = age
-	self.health = clamp(health, 0, 100)
-	self.weapon = weapon
+	_name = name
+	_age = age
+	_health = clamp(health, 0, 100)
+	_weapon = weapon

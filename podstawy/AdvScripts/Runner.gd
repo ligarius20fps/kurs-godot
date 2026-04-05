@@ -5,7 +5,7 @@ extends EditorScript
 func _run() -> void:
 	var jeff: Character = Character.new()
 	jeff.print_health()
-	jeff.health = 105
+	jeff._health = 105
 	jeff.print_health()
 	print(jeff.get_instance_id())
 	jeff.say_info()
@@ -14,7 +14,7 @@ func _run() -> void:
 	bob.say_info()
 	print(bob.get_instance_id())
 	print("Bob: OW !")
-	bob.health -= 20
+	bob._health -= 20
 	bob.print_health()
 	
 	var steve:Character = Character.new("Steve", 105, 16, "Sword")
