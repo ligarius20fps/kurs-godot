@@ -26,8 +26,8 @@ func _run() -> void:
 		#steve.print_health()
 	#if steve.get_health() <= 0:
 		#print("%s is dead by now" % steve._name)
-		
-	var johnny: Character = Character.new("Johnny", 2000, "Bare fists")
+	
+	var johnny: Hero = Hero.new("Johnny", 2000, "Bare fists")
 	johnny.say_info()
 	while johnny.health > 0:
 		johnny.health = johnny.health - range(17, 24).pick_random()
@@ -36,3 +36,7 @@ func _run() -> void:
 		print("%s is dead by now" % johnny.name)
 	
 	print("character_count: %d" % Character.character_count)
+	print(johnny is Character)
+	print(steve is Hero)
+	johnny.say_info()
+	print(steve)
