@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bjd2dv8lble4o"]
+
+[ext_resource type="Texture2D" uid="uid://dpafuhfubm2do" path="res://Assets/Bg.png" id="1_j2wod"]
+
+[node name="Node2D" type="Node2D" unique_id=2132851214]
+
+[node name="Bg" type="Sprite2D" parent="." unique_id=1114574219]
+texture = ExtResource("1_j2wod")
+centered = false
+metadata/_edit_lock_ = true
