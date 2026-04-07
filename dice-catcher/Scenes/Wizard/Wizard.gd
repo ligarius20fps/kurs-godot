@@ -1,3 +1,4 @@
+class_name Wizard
 extends Node2D
 
 const MAX_SCALE = 2
@@ -6,8 +7,7 @@ const MAX_SCALE = 2
 func _ready() -> void:
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+#magik się spłaszcza
 func _process(delta: float) -> void:
 	var scale_transform = Vector2(transform.x.x, transform.y.y)
 	scale_transform.y += delta
