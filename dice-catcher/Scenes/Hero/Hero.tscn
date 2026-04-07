@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bb4mxuh5kl6r3"]
+
+[ext_resource type="Texture2D" uid="uid://cfkw8tenya2gh" path="res://Assets/Hero.png" id="1_1i8wv"]
+[ext_resource type="Script" uid="uid://bi22afxquq1ha" path="res://Scenes/Hero/Hero.gd" id="1_af788"]
+
+[node name="Hero" type="Node2D" unique_id=600294332]
+script = ExtResource("1_af788")
+
+[node name="Hero" type="Sprite2D" parent="." unique_id=1575119389]
+position = Vector2(2, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_1i8wv")

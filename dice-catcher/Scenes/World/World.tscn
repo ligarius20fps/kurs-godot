@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://j4607dm30by6"]
 
 [ext_resource type="Texture2D" uid="uid://dpafuhfubm2do" path="res://Assets/Bg.png" id="1_0nbjp"]
+[ext_resource type="PackedScene" uid="uid://bb4mxuh5kl6r3" path="res://Scenes/Hero/Hero.tscn" id="2_xf6vi"]
+[ext_resource type="PackedScene" uid="uid://c5l1du0c0lurg" path="res://Scenes/Wizard/Wizard.tscn" id="3_ouhkt"]
 
 [node name="World" type="Node" unique_id=668695916]
 
@@ -8,3 +10,15 @@
 texture = ExtResource("1_0nbjp")
 centered = false
 metadata/_edit_lock_ = true
+
+[node name="Hero" parent="." unique_id=600294332 instance=ExtResource("2_xf6vi")]
+position = Vector2(568, 293)
+
+[node name="Hero2" parent="." unique_id=1671881505 instance=ExtResource("2_xf6vi")]
+position = Vector2(632, 438)
+
+[node name="Hero3" parent="." unique_id=605157033 instance=ExtResource("2_xf6vi")]
+position = Vector2(621, 171)
+
+[node name="Wizard" parent="." unique_id=490389942 instance=ExtResource("3_ouhkt")]
+position = Vector2(947, 276)
