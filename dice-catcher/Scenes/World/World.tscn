@@ -14,11 +14,5 @@ metadata/_edit_lock_ = true
 [node name="Hero" parent="." unique_id=600294332 instance=ExtResource("2_xf6vi")]
 position = Vector2(555, 297)
 
-[node name="Hero2" parent="Hero" unique_id=2119238479 instance=ExtResource("2_xf6vi")]
-position = Vector2(103, 81)
-
-[node name="Hero2" parent="Hero/Hero2" unique_id=668715372 instance=ExtResource("2_xf6vi")]
-position = Vector2(-3, -192)
-
 [node name="Wizard" parent="." unique_id=490389942 instance=ExtResource("3_ouhkt")]
 position = Vector2(947, 276)
