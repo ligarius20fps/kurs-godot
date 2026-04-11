@@ -32,5 +32,5 @@ func _on_cast_spell_timer_timeout() -> void:
 	cast_spell.emit()
 
 func spelled() -> void:
-	scale /= 1.05
+	scale /= 2
 	set_process(false)
