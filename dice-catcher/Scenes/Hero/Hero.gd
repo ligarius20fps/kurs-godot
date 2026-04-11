@@ -1,5 +1,6 @@
 class_name Hero
 extends Node2D
+
 """
 var p_f: int = 0
 var ph_f: int = 0
@@ -27,3 +28,7 @@ func _process(delta: float) -> void:
 	#p_f += 1
 	#print("_process %d" % p_f)
 	rotate(PI* delta)
+
+
+func _on_hide_timer_timeout() -> void:
+	hide()
