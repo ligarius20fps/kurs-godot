@@ -13,6 +13,18 @@ metadata/_edit_lock_ = true
 
 [node name="Hero" parent="." unique_id=600294332 instance=ExtResource("2_xf6vi")]
 position = Vector2(555, 297)
+hide_sec = 4.0
+
+[node name="Hero2" parent="." unique_id=428894093 instance=ExtResource("2_xf6vi")]
+position = Vector2(310, 385)
+hide_sec = 0.5
+
+[node name="Hero3" parent="." unique_id=89087169 instance=ExtResource("2_xf6vi")]
+position = Vector2(718, 134)
+
+[node name="Hero4" parent="." unique_id=336764659 instance=ExtResource("2_xf6vi")]
+position = Vector2(242, 162)
+hide_sec = 1.0
 
 [node name="Wizard" parent="." unique_id=490389942 instance=ExtResource("3_ouhkt")]
 position = Vector2(947, 276)
