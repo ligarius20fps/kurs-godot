@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://j4607dm30by6"]
 
 [ext_resource type="Texture2D" uid="uid://dpafuhfubm2do" path="res://Assets/Bg.png" id="1_0nbjp"]
+[ext_resource type="Script" uid="uid://dcnsrk00g6876" path="res://Scenes/World/World.gd" id="1_5jr8x"]
 [ext_resource type="PackedScene" uid="uid://bb4mxuh5kl6r3" path="res://Scenes/Hero/Hero.tscn" id="2_xf6vi"]
 [ext_resource type="PackedScene" uid="uid://c5l1du0c0lurg" path="res://Scenes/Wizard/Wizard.tscn" id="3_ouhkt"]
 
 [node name="World" type="Node" unique_id=668695916]
+script = ExtResource("1_5jr8x")
 
 [node name="Bg" type="Sprite2D" parent="." unique_id=1114574219]
 texture = ExtResource("1_0nbjp")
@@ -13,18 +15,15 @@ metadata/_edit_lock_ = true
 
 [node name="Hero" parent="." unique_id=600294332 instance=ExtResource("2_xf6vi")]
 position = Vector2(555, 297)
-hide_sec = 4.0
 
-[node name="Hero2" parent="." unique_id=428894093 instance=ExtResource("2_xf6vi")]
-position = Vector2(310, 385)
-hide_sec = 0.5
+[node name="Hero2" parent="." unique_id=449615388 instance=ExtResource("2_xf6vi")]
+position = Vector2(699, 473)
 
-[node name="Hero3" parent="." unique_id=89087169 instance=ExtResource("2_xf6vi")]
-position = Vector2(718, 134)
-
-[node name="Hero4" parent="." unique_id=336764659 instance=ExtResource("2_xf6vi")]
-position = Vector2(242, 162)
-hide_sec = 1.0
+[node name="Hero3" parent="." unique_id=267659511 instance=ExtResource("2_xf6vi")]
+position = Vector2(702, 111)
 
 [node name="Wizard" parent="." unique_id=490389942 instance=ExtResource("3_ouhkt")]
 position = Vector2(947, 276)
+
+[connection signal="cast_spell" from="Hero" to="." method="_on_hero_cast_spell"]
+[connection signal="cast_spell" from="Wizard" to="." method="_on_wizard_cast_spell"]

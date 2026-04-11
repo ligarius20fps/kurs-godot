@@ -3,6 +3,8 @@ extends Node2D
 
 const MAX_SCALE = 2
 
+signal cast_spell
+
 @onready var appear_timer: Timer = $AppearTimer
 
 
@@ -23,3 +25,12 @@ func _process(delta: float) -> void:
 #pojawia się po 2 sekundach
 func _on_appear_timer_timeout() -> void:
 	show()
+
+
+func _on_cast_spell_timer_timeout() -> void:
+	print("ABRACADABRA !")
+	cast_spell.emit()
+
+func spelled() -> void:
+	scale /= 1.05
+	set_process(false)
