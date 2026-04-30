@@ -20,3 +20,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	dice.rotate(ROTATION_SPEED * delta)
 	move_local_y(SPEED * delta)
+	is_off_screen()
+
+func is_off_screen():
+	if get_viewport_rect().end.y <= position.y:
+		print("Off screen")
+		queue_free()
