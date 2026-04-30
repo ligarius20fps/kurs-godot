@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://xlj61jrmvlld"]
+[gd_scene load_steps=4 format=3 uid="uid://xlj61jrmvlld"]
 
 [ext_resource type="Texture2D" uid="uid://tbltdexiry4x" path="res://Assets/GemBg.png" id="1_iukft"]
+[ext_resource type="Script" uid="uid://kua6r5ex1vli" path="res://Scenes/Game.gd" id="1_j5yw3"]
 [ext_resource type="PackedScene" uid="uid://b402sficj377r" path="res://Scenes/Dice/Dice.tscn" id="2_gl6un"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_j5yw3")
 
 [node name="GemBg" type="Sprite2D" parent="."]
 scale = Vector2(0.6, 0.6)
@@ -28,3 +30,5 @@ position = Vector2(859, -263)
 
 [node name="Dice6" parent="." instance=ExtResource("2_gl6un")]
 position = Vector2(545, -582)
+
+[connection signal="off_screen" from="Dice" to="." method="game_over"]

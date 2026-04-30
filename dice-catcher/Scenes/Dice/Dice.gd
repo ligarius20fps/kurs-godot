@@ -1,6 +1,8 @@
 class_name Dice
 extends Area2D
 
+signal off_screen
+
 @onready var dice: Sprite2D = $Dice
 
 @export
@@ -24,5 +26,5 @@ func _physics_process(delta: float) -> void:
 
 func is_off_screen():
 	if get_viewport_rect().end.y <= position.y:
-		print("Off screen")
+		off_screen.emit()
 		queue_free()
