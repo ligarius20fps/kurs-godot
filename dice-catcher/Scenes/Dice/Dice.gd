@@ -9,12 +9,14 @@ signal off_screen
 var SPEED:int = 200
 @export
 var ROTATION_SPEED:float = TAU/4
+const max_angle = 0.3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# mówili mi: "nie kręć całą sceną"
 	# a zróbmy tak, że będzie spadało na ukos
-	rotate(randf_range(-0.5, 0.5))
+	var _rotation = randf_range(-max_angle, max_angle)
+	rotate(_rotation)
 	SPEED = randi_range(100, 400)
 	ROTATION_SPEED = randf_range(-TAU, TAU)
 

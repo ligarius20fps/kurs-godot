@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://tbltdexiry4x" path="res://Assets/GemBg.png" id="1_iukft"]
 [ext_resource type="Script" uid="uid://kua6r5ex1vli" path="res://Scenes/Game.gd" id="1_j5yw3"]
-[ext_resource type="PackedScene" uid="uid://b402sficj377r" path="res://Scenes/Dice/Dice.tscn" id="2_gl6un"]
+[ext_resource type="AudioStream" uid="uid://bde4dh6c0ukos" path="res://Assets/game_over.wav" id="3_j5yw3"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_j5yw3")
@@ -13,22 +13,11 @@ texture = ExtResource("1_iukft")
 centered = false
 metadata/_edit_lock_ = true
 
-[node name="Dice" parent="." instance=ExtResource("2_gl6un")]
-position = Vector2(442, 94)
+[node name="SpawnDiceTimer" type="Timer" parent="."]
+autostart = true
 
-[node name="Dice2" parent="." instance=ExtResource("2_gl6un")]
-position = Vector2(154, 75)
+[node name="GameOverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_j5yw3")
+volume_db = -20.0
 
-[node name="Dice3" parent="." instance=ExtResource("2_gl6un")]
-position = Vector2(643, -341)
-
-[node name="Dice4" parent="." instance=ExtResource("2_gl6un")]
-position = Vector2(406, -293)
-
-[node name="Dice5" parent="." instance=ExtResource("2_gl6un")]
-position = Vector2(859, -263)
-
-[node name="Dice6" parent="." instance=ExtResource("2_gl6un")]
-position = Vector2(545, -582)
-
-[connection signal="off_screen" from="Dice" to="." method="game_over"]
+[connection signal="timeout" from="SpawnDiceTimer" to="." method="spawn_dice"]
