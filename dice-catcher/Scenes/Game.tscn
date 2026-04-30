@@ -9,6 +9,22 @@
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_iukft")
 centered = false
+metadata/_edit_lock_ = true
 
 [node name="Dice" parent="." instance=ExtResource("2_gl6un")]
 position = Vector2(442, 94)
+
+[node name="Dice2" parent="." instance=ExtResource("2_gl6un")]
+position = Vector2(154, 75)
+
+[node name="Dice3" parent="." instance=ExtResource("2_gl6un")]
+position = Vector2(643, -341)
+
+[node name="Dice4" parent="." instance=ExtResource("2_gl6un")]
+position = Vector2(406, -293)
+
+[node name="Dice5" parent="." instance=ExtResource("2_gl6un")]
+position = Vector2(859, -263)
+
+[node name="Dice6" parent="." instance=ExtResource("2_gl6un")]
+position = Vector2(545, -582)
