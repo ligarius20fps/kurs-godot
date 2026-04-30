@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://xlj61jrmvlld"]
+[gd_scene load_steps=3 format=3 uid="uid://xlj61jrmvlld"]
 
 [ext_resource type="Texture2D" uid="uid://tbltdexiry4x" path="res://Assets/GemBg.png" id="1_iukft"]
+[ext_resource type="PackedScene" uid="uid://b402sficj377r" path="res://Scenes/Dice/Dice.tscn" id="2_gl6un"]
 
 [node name="Game" type="Node2D"]
 
@@ -8,3 +9,6 @@
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_iukft")
 centered = false
+
+[node name="Dice" parent="." instance=ExtResource("2_gl6un")]
+position = Vector2(442, 94)

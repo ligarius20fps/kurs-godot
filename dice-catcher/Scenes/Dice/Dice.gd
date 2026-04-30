@@ -1,0 +1,22 @@
+class_name Dice
+extends Area2D
+
+@onready var dice: Sprite2D = $Dice
+
+@export
+var SPEED:int = 200
+@export
+var ROTATION_SPEED:float = TAU/4
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	# mówili mi: "nie kręć całą sceną"
+	# a zróbmy tak, że będzie spadało na ukos
+	rotate(randf_range(-0.5, 0.5))
+	SPEED = randi_range(100, 400)
+	ROTATION_SPEED = randf_range(-TAU, TAU)
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _physics_process(delta: float) -> void:
+	dice.rotate(ROTATION_SPEED * delta)
+	move_local_y(SPEED * delta)
