@@ -5,6 +5,7 @@ const DICE = preload("uid://b402sficj377r")
 @onready var game_over_sound: AudioStreamPlayer = $GameOverSound
 const STOPPABLE_GROUP = "stoppable"
 
+var score:int = 0
 
 # kostka pojawi się nad planszą
 const off_screen_spawn_distnace = 80
@@ -40,7 +41,11 @@ func new_game():
 	get_tree().reload_current_scene()
 	
 
+func score_point(points: int):
+	score += points
+	print("Score: %d" % score)
+
 func game_over():
-	print("Game Over!")
+	print("Game Over! Total score: %d" % score)
 	game_over_sound.play()
 	freeze_all()

@@ -22,3 +22,5 @@ shape = SubResource("RectangleShape2D_xiqmo")
 [node name="Chrup" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_xiqmo")
 volume_db = -10.0
+
+[connection signal="area_entered" from="." to="." method="eat_dice"]

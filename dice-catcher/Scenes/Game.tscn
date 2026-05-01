@@ -26,3 +26,4 @@ position = Vector2(553, 581)
 
 [connection signal="timeout" from="SpawnDiceTimer" to="." method="spawn_dice"]
 [connection signal="finished" from="GameOverSound" to="." method="new_game"]
+[connection signal="dice_eaten" from="Fox" to="." method="score_point"]
