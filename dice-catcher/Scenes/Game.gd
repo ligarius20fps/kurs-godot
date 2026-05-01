@@ -1,10 +1,11 @@
 extends Node2D
 
 const DICE = preload("uid://b402sficj377r")
-@onready var timer: Timer = $SpawnDiceTimer
+@onready var timer: Timer = $Pausable/SpawnDiceTimer
 @onready var game_over_sound: AudioStreamPlayer = $GameOverSound
 @onready var score_label: Label = $ScoreLabel
 @onready var bgm: AudioStreamPlayer = $BGM
+@onready var pausable: Node = $Pausable
 
 
 const STOPPABLE_GROUP = "stoppable"
@@ -37,15 +38,10 @@ func spawn_dice():
 	)
 	new_dice.off_screen.connect(game_over)
 	new_dice.position = spawn_point
-	add_child(new_dice)
-
-func freeze_all():
-	timer.stop()
-	var to_stop:Array[Node] = get_tree().get_nodes_in_group(STOPPABLE_GROUP)
-	for my_node in to_stop:
-		my_node.set_physics_process(false)
+	pausable.add_child(new_dice)
 
 func new_game():
+	get_tree().paused = false
 	get_tree().reload_current_scene()
 	
 
@@ -56,4 +52,4 @@ func score_point(points: int):
 func game_over():
 	bgm.stop()
 	game_over_sound.play()
-	freeze_all()
+	get_tree().paused = true

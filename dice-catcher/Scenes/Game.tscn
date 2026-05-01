@@ -16,6 +16,7 @@ shadow_size = 15
 shadow_color = Color(0, 0, 0, 1)
 
 [node name="Game" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_j5yw3")
 
 [node name="GemBg" type="Sprite2D" parent="."]
@@ -33,20 +34,23 @@ offset_bottom = 103.0
 text = "Score"
 label_settings = SubResource("LabelSettings_b2bpf")
 
-[node name="SpawnDiceTimer" type="Timer" parent="."]
-autostart = true
-
 [node name="GameOverSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_j5yw3")
 volume_db = -10.0
-
-[node name="Fox" parent="." instance=ExtResource("4_kldst")]
-position = Vector2(553, 581)
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_7lihs")
 autoplay = true
 
-[connection signal="timeout" from="SpawnDiceTimer" to="." method="spawn_dice"]
+[node name="Pausable" type="Node" parent="."]
+process_mode = 1
+
+[node name="Fox" parent="Pausable" instance=ExtResource("4_kldst")]
+position = Vector2(553, 581)
+
+[node name="SpawnDiceTimer" type="Timer" parent="Pausable"]
+autostart = true
+
 [connection signal="finished" from="GameOverSound" to="." method="new_game"]
-[connection signal="dice_eaten" from="Fox" to="." method="score_point"]
+[connection signal="dice_eaten" from="Pausable/Fox" to="." method="score_point"]
+[connection signal="timeout" from="Pausable/SpawnDiceTimer" to="." method="spawn_dice"]
