@@ -3,6 +3,8 @@ extends Node2D
 const DICE = preload("uid://b402sficj377r")
 @onready var timer: Timer = $SpawnDiceTimer
 @onready var game_over_sound: AudioStreamPlayer = $GameOverSound
+@onready var score_label: Label = $ScoreLabel
+
 const STOPPABLE_GROUP = "stoppable"
 
 var score:int = 0
@@ -43,9 +45,8 @@ func new_game():
 
 func score_point(points: int):
 	score += points
-	print("Score: %d" % score)
+	score_label.text = "Score: %d" % score
 
 func game_over():
-	print("Game Over! Total score: %d" % score)
 	game_over_sound.play()
 	freeze_all()
