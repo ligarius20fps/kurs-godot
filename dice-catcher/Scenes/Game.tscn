@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://xlj61jrmvlld"]
+[gd_scene load_steps=5 format=3 uid="uid://xlj61jrmvlld"]
 
 [ext_resource type="Texture2D" uid="uid://tbltdexiry4x" path="res://Assets/GemBg.png" id="1_iukft"]
 [ext_resource type="Script" uid="uid://kua6r5ex1vli" path="res://Scenes/Game.gd" id="1_j5yw3"]
 [ext_resource type="AudioStream" uid="uid://bde4dh6c0ukos" path="res://Assets/game_over.wav" id="3_j5yw3"]
+[ext_resource type="PackedScene" uid="uid://cfygxy6t3k17t" path="res://Scenes/Fox/Fox.tscn" id="4_kldst"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_j5yw3")
@@ -18,7 +19,10 @@ autostart = true
 
 [node name="GameOverSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_j5yw3")
-volume_db = -20.0
+volume_db = -10.0
+
+[node name="Fox" parent="." instance=ExtResource("4_kldst")]
+position = Vector2(553, 581)
 
 [connection signal="timeout" from="SpawnDiceTimer" to="." method="spawn_dice"]
 [connection signal="finished" from="GameOverSound" to="." method="new_game"]
