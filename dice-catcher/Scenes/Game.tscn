@@ -21,3 +21,4 @@ stream = ExtResource("3_j5yw3")
 volume_db = -20.0
 
 [connection signal="timeout" from="SpawnDiceTimer" to="." method="spawn_dice"]
+[connection signal="finished" from="GameOverSound" to="." method="new_game"]
