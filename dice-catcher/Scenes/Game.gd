@@ -4,10 +4,12 @@ const DICE = preload("uid://b402sficj377r")
 @onready var timer: Timer = $SpawnDiceTimer
 @onready var game_over_sound: AudioStreamPlayer = $GameOverSound
 @onready var score_label: Label = $ScoreLabel
+@onready var bgm: AudioStreamPlayer = $BGM
+
 
 const STOPPABLE_GROUP = "stoppable"
 
-var score:int = 0
+var _score:int = 0
 
 # kostka pojawi się nad planszą
 const off_screen_spawn_distnace = 80
@@ -20,8 +22,12 @@ func _unhandled_input(event: InputEvent) -> void:
 		new_game()
 
 func _ready():
+	update_score_label()
 	screen_size = get_viewport_rect().size
 	spawn_dice()
+
+func update_score_label():
+	score_label.text = "%04d" % _score
 
 func spawn_dice():
 	var new_dice: Dice = DICE.instantiate()
@@ -44,9 +50,10 @@ func new_game():
 	
 
 func score_point(points: int):
-	score += points
-	score_label.text = "Score: %d" % score
+	_score += points
+	update_score_label()
 
 func game_over():
+	bgm.stop()
 	game_over_sound.play()
 	freeze_all()

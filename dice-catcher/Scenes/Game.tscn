@@ -1,10 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://xlj61jrmvlld"]
+[gd_scene load_steps=8 format=3 uid="uid://xlj61jrmvlld"]
 
 [ext_resource type="Texture2D" uid="uid://tbltdexiry4x" path="res://Assets/GemBg.png" id="1_iukft"]
 [ext_resource type="Script" uid="uid://kua6r5ex1vli" path="res://Scenes/Game.gd" id="1_j5yw3"]
 [ext_resource type="FontFile" uid="uid://byd6ojl778sdx" path="res://Assets/LuckiestGuy-Regular.ttf" id="3_b2bpf"]
 [ext_resource type="AudioStream" uid="uid://bde4dh6c0ukos" path="res://Assets/game_over.wav" id="3_j5yw3"]
 [ext_resource type="PackedScene" uid="uid://cfygxy6t3k17t" path="res://Scenes/Fox/Fox.tscn" id="4_kldst"]
+[ext_resource type="AudioStream" uid="uid://bmkanc8ctohwd" path="res://Assets/tetris.mp3" id="6_7lihs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_b2bpf"]
+font = ExtResource("3_b2bpf")
+font_size = 72
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 15
+shadow_color = Color(0, 0, 0, 1)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_j5yw3")
@@ -21,11 +30,8 @@ offset_left = 30.0
 offset_top = 30.0
 offset_right = 313.0
 offset_bottom = 103.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_b2bpf")
-theme_override_font_sizes/font_size = 72
-text = "Score: 0"
+text = "Score"
+label_settings = SubResource("LabelSettings_b2bpf")
 
 [node name="SpawnDiceTimer" type="Timer" parent="."]
 autostart = true
@@ -36,6 +42,10 @@ volume_db = -10.0
 
 [node name="Fox" parent="." instance=ExtResource("4_kldst")]
 position = Vector2(553, 581)
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_7lihs")
+autoplay = true
 
 [connection signal="timeout" from="SpawnDiceTimer" to="." method="spawn_dice"]
 [connection signal="finished" from="GameOverSound" to="." method="new_game"]
