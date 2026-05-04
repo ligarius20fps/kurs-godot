@@ -20,6 +20,7 @@ func _physics_process(delta: float) -> void:
 	if not is_zero_approx(move):
 		fox.flip_h = (move > 0)
 	position.x += move * SPEED * delta
+	position.x = clampf(position.x, 53.0, 1093.0)
 
 
 func eat_dice(area: Area2D) -> void:
