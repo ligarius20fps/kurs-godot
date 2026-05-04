@@ -1,9 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmvi8rt67bmrw"]
+[gd_scene load_steps=3 format=3 uid="uid://cmvi8rt67bmrw"]
 
 [ext_resource type="Texture2D" uid="uid://cxphm8tabphia" path="res://Assets/background/rocks_1.png" id="1_rdw05"]
+[ext_resource type="PackedScene" uid="uid://c35thc8oy4kmx" path="res://Scenes/TappyPlane/TappyPlane.tscn" id="2_gwu2e"]
 
 [node name="Game" type="Node"]
 
 [node name="Rocks1" type="Sprite2D" parent="."]
 position = Vector2(276, 314)
 texture = ExtResource("1_rdw05")
+metadata/_edit_lock_ = true
+
+[node name="TappyPlane" parent="." instance=ExtResource("2_gwu2e")]
+position = Vector2(53, 313)
