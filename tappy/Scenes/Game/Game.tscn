@@ -11,4 +11,4 @@ texture = ExtResource("1_rdw05")
 metadata/_edit_lock_ = true
 
 [node name="TappyPlane" parent="." instance=ExtResource("2_gwu2e")]
-position = Vector2(53, 313)
+position = Vector2(57, 58)

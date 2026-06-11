@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://c35thc8oy4kmx"]
+[gd_scene load_steps=8 format=3 uid="uid://c35thc8oy4kmx"]
 
 [ext_resource type="Texture2D" uid="uid://bk1weshdrxkh8" path="res://Assets/plane/planes_sheet.png" id="1_8tt1i"]
+[ext_resource type="Script" uid="uid://7bt0ps04c3ut" path="res://Scenes/TappyPlane/TappyPlane.gd" id="1_8wjqg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8tt1i"]
 atlas = ExtResource("1_8tt1i")
@@ -38,6 +39,7 @@ animations = [{
 radius = 17.029387
 
 [node name="TappyPlane" type="CharacterBody2D"]
+script = ExtResource("1_8wjqg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
