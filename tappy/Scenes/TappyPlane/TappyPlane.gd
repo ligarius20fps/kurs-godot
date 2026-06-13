@@ -1,4 +1,7 @@
+class_name TappyPlane
 extends CharacterBody2D
+
+signal plane_died
 
 var gravity: float = ProjectSettings.get("physics/2d/default_gravity")
 const JUMP_POWER: float = -500.0
@@ -27,6 +30,7 @@ func die():
 	set_physics_process(false)
 	# nie żyje
 	alive = false
+	emit_signal("plane_died")
 
 func _physics_process(delta: float) -> void:
 	# jak jest na podłodze, to giń
