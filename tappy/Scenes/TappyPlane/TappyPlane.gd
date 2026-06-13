@@ -22,18 +22,15 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump"):
 		jumped = true
 
-#jak samolot umarł
+# jak samolot umarł
 func die():
 	# będzie duszkiem
 	animated_sprite_2d.modulate = Color(1,1,1,0.5)
-	# śmigło nie kręci się
-	animated_sprite_2d.pause()
-	# fizyka się stopuje
-	set_physics_process(false)
 	# silnik przestaje warkotać
 	engine_sound.stop()
 	# nie żyje
 	alive = false
+	get_tree().paused = true
 	emit_signal("plane_died")
 
 func _physics_process(delta: float) -> void:

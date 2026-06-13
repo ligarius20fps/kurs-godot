@@ -40,6 +40,8 @@ animations = [{
 radius = 17.029387
 
 [node name="TappyPlane" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_8wjqg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
