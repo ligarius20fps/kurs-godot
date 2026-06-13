@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c35thc8oy4kmx"]
+[gd_scene load_steps=9 format=3 uid="uid://c35thc8oy4kmx"]
 
 [ext_resource type="Texture2D" uid="uid://bk1weshdrxkh8" path="res://Assets/plane/planes_sheet.png" id="1_8tt1i"]
 [ext_resource type="Script" uid="uid://7bt0ps04c3ut" path="res://Scenes/TappyPlane/TappyPlane.gd" id="1_8wjqg"]
+[ext_resource type="AudioStream" uid="uid://dr4o5p8h56wd" path="res://Assets/audio/engine.mp3" id="3_kv6wn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8tt1i"]
 atlas = ExtResource("1_8tt1i")
@@ -49,3 +50,9 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3, 0)
 shape = SubResource("CircleShape2D_8tt1i")
+
+[node name="EngineSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_kv6wn")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true

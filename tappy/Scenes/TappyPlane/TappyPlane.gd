@@ -1,6 +1,8 @@
 class_name TappyPlane
 extends CharacterBody2D
 
+@onready var engine_sound: AudioStreamPlayer = $EngineSound
+
 signal plane_died
 
 var gravity: float = ProjectSettings.get("physics/2d/default_gravity")
@@ -28,6 +30,8 @@ func die():
 	animated_sprite_2d.pause()
 	# fizyka się stopuje
 	set_physics_process(false)
+	# silnik przestaje warkotać
+	engine_sound.stop()
 	# nie żyje
 	alive = false
 	emit_signal("plane_died")

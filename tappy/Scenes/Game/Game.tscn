@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmvi8rt67bmrw"]
+[gd_scene load_steps=6 format=3 uid="uid://cmvi8rt67bmrw"]
 
 [ext_resource type="Texture2D" uid="uid://cxphm8tabphia" path="res://Assets/background/rocks_1.png" id="1_rdw05"]
 [ext_resource type="Script" uid="uid://dbqwyiyqccuoc" path="res://Scenes/Game/Game.gd" id="1_y3kpf"]
 [ext_resource type="PackedScene" uid="uid://c35thc8oy4kmx" path="res://Scenes/TappyPlane/TappyPlane.tscn" id="2_gwu2e"]
 [ext_resource type="PackedScene" uid="uid://bles33wu866yv" path="res://Scenes/Barrier/Barrier.tscn" id="3_xbxml"]
+[ext_resource type="AudioStream" uid="uid://wjnyhwhbyrd" path="res://Assets/audio/game_over.wav" id="5_y3kpf"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_y3kpf")
@@ -31,5 +32,8 @@ gizmo_extents = 40.0
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
+
+[node name="GameOver" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_y3kpf")
 
 [connection signal="timeout" from="SpawnTimer" to="." method="spawn_pipe"]

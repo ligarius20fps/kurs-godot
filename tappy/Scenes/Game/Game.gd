@@ -11,6 +11,9 @@ const PIPES = preload("uid://dms402y81minq")
 @onready var pipes_holder: Node = $PipesHolder
 
 @onready var spawn_timer: Timer = $SpawnTimer
+#dźwięki
+@onready var game_over: AudioStreamPlayer = $GameOver
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,3 +37,5 @@ func spawn_pipe():
 
 func freeze_all():
 	spawn_timer.stop()
+	get_tree().paused = true
+	game_over.play()
