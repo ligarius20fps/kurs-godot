@@ -58,3 +58,8 @@ stream = ExtResource("3_kv6wn")
 volume_db = -10.0
 autoplay = true
 parameters/looping = true
+
+[node name="DyingTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="DyingTimer" to="." method="_died"]

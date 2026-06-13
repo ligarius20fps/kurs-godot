@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://wjnyhwhbyrd" path="res://Assets/audio/game_over.wav" id="5_y3kpf"]
 
 [node name="Game" type="Node"]
+process_mode = 3
 script = ExtResource("1_y3kpf")
 
 [node name="Rocks1" type="Sprite2D" parent="."]
@@ -14,12 +15,13 @@ position = Vector2(276, 314)
 texture = ExtResource("1_rdw05")
 metadata/_edit_lock_ = true
 
-[node name="TappyPlane" parent="." instance=ExtResource("2_gwu2e")]
-position = Vector2(57, 58)
-
 [node name="Barrier" parent="." instance=ExtResource("3_xbxml")]
 
 [node name="PipesHolder" type="Node" parent="."]
+process_mode = 1
+
+[node name="TappyPlane" parent="." instance=ExtResource("2_gwu2e")]
+position = Vector2(57, 58)
 
 [node name="UpperPipeSpawner" type="Marker2D" parent="."]
 position = Vector2(561, 125)

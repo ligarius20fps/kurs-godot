@@ -37,5 +37,5 @@ func spawn_pipe():
 
 func freeze_all():
 	spawn_timer.stop()
-	get_tree().paused = true
+	pipes_holder.get_tree().paused = true
 	game_over.play()
