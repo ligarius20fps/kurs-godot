@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c35thc8oy4kmx"]
+[gd_scene load_steps=12 format=3 uid="uid://c35thc8oy4kmx"]
 
 [ext_resource type="Texture2D" uid="uid://bk1weshdrxkh8" path="res://Assets/plane/planes_sheet.png" id="1_8tt1i"]
 [ext_resource type="Script" uid="uid://7bt0ps04c3ut" path="res://Scenes/TappyPlane/TappyPlane.gd" id="1_8wjqg"]
@@ -39,6 +39,92 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_8tt1i"]
 radius = 17.029387
 
+[sub_resource type="Animation" id="Animation_kv6wn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jfjno"]
+resource_name = "dying"
+length = 1.0000111
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:rotation")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.4166667, 0.5, 0.5833334, 0.6666667, 0.75, 0.8333334, 0.9166667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.5707963267948966, 3.1415927, 4.71238898038469, 0.0, 1.5707963267948966, 3.1415927, 4.71238898038469, 0.0, 1.5707963267948966, 3.1415927, 4.71238898038469, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:scale")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.5, -0.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:modulate")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.0000111),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.5019608)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bfldv"]
+_data = {
+&"RESET": SubResource("Animation_kv6wn"),
+&"dying": SubResource("Animation_jfjno")
+}
+
 [node name="TappyPlane" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 3
@@ -59,7 +145,7 @@ volume_db = -10.0
 autoplay = true
 parameters/looping = true
 
-[node name="DyingTimer" type="Timer" parent="."]
-one_shot = true
-
-[connection signal="timeout" from="DyingTimer" to="." method="_died"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_bfldv")
+}
