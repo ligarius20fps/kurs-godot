@@ -14,15 +14,18 @@ const PIPES = preload("uid://dms402y81minq")
 #dźwięki
 @onready var game_over: AudioStreamPlayer = $GameOver
 
+func _unhandled_input(event: InputEvent) -> void:
+	# esc
+	if event.is_action_pressed("ui_cancel"):
+		# odmroź rzeczy
+		get_tree().paused = false
+		# przejdź do menu głównego
+		GameManager.load_main()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	tappy_plane.plane_died.connect(freeze_all)
 	spawn_pipe()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-	#pass
 
 func spawn_pipe():
 	# x wiemy gdzie będzie
