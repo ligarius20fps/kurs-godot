@@ -1,0 +1,153 @@
+[gd_scene load_steps=10 format=3 uid="uid://bk7wx4bliuk8n"]
+
+[ext_resource type="Texture2D" uid="uid://bjibyqj06e775" path="res://Assets/background/sky.png" id="1_p8rbg"]
+[ext_resource type="LabelSettings" uid="uid://b4oc66qnbs2ku" path="res://Resources/FontResourceBig.tres" id="2_cmk6n"]
+[ext_resource type="FontFile" uid="uid://cneedlbnotp5q" path="res://Assets/fonts/LuckiestGuy-Regular.ttf" id="3_i3fi7"]
+[ext_resource type="LabelSettings" uid="uid://cwij2yfiai64e" path="res://Resources/FontResourceSmall.tres" id="4_i3fi7"]
+[ext_resource type="AudioStream" uid="uid://da3uu2gx5a53l" path="res://Assets/audio/bgm_menu.mp3" id="5_o8wgc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_o8wgc"]
+font = ExtResource("3_i3fi7")
+font_size = 52
+font_color = Color(0.19761224, 0.65694934, 0.9684175, 1)
+outline_size = 4
+outline_color = Color(0, 0.4580782, 0.76475775, 1)
+
+[sub_resource type="Animation" id="Animation_o8wgc"]
+resource_name = "Flash"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:label_settings:font_color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.19761224, 0.65694934, 0.9684175, 1), Color(0.19607843, 0.65882355, 0.96862745, 0), Color(0.19761224, 0.65694934, 0.9684175, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:label_settings:outline_color")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0.4580782, 0.76475775, 1), Color(0, 0.45882353, 0.7647059, 0), Color(0, 0.4580782, 0.76475775, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_w20t6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:label_settings:font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.19761224, 0.65694934, 0.9684175, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:label_settings:outline_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0.4580782, 0.76475775, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aw1lf"]
+_data = {
+&"Flash": SubResource("Animation_o8wgc"),
+&"RESET": SubResource("Animation_w20t6")
+}
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_p8rbg")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 75
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="GameName" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "GRA W
+SAMOLOT"
+label_settings = ExtResource("2_cmk6n")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Press2Play" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "WCIŚNIJ
+SPACJĘ"
+label_settings = SubResource("LabelSettings_o8wgc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/Press2Play"]
+libraries = {
+&"": SubResource("AnimationLibrary_aw1lf")
+}
+autoplay = "Flash"
+
+[node name="HighScoreLabel" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "REKORD"
+label_settings = ExtResource("4_i3fi7")
+vertical_alignment = 1
+
+[node name="HighScore" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "000"
+label_settings = ExtResource("4_i3fi7")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_o8wgc")
+autoplay = true
+parameters/looping = true
