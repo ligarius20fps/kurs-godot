@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpdqkw1xnlnay"]
+[gd_scene load_steps=5 format=3 uid="uid://bpdqkw1xnlnay"]
 
 [ext_resource type="Texture2D" uid="uid://bfdklvbl1g3e5" path="res://Assets/pipes/pipe.png" id="1_k6n45"]
 
@@ -8,6 +8,9 @@ size = Vector2(48, 53)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmu3v"]
 size = Vector2(70, 560)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k6n45"]
+size = Vector2(28, 17)
+
 [node name="Pipe" type="Area2D"]
 collision_layer = 0
 collision_mask = 2
@@ -16,6 +19,7 @@ collision_mask = 2
 position = Vector2(-35, 0)
 texture = ExtResource("1_k6n45")
 centered = false
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 43.5)
@@ -25,4 +29,9 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(0, 350)
 shape = SubResource("RectangleShape2D_hmu3v")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8.5)
+shape = SubResource("RectangleShape2D_k6n45")
 metadata/_edit_lock_ = true
